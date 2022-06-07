@@ -19,7 +19,8 @@ class Solution {
             repo.put(id_list[i], 0);
             mail.put(id_list[i], i);
         }
-                
+        
+        // 신고 받은 횟수
         for(String re : reportSet){
             StringTokenizer st = new StringTokenizer(re);
             String userId = st.nextToken();
@@ -27,6 +28,7 @@ class Solution {
             repo.put(repoId, repo.get(repoId)+1);
         }
         
+        // 메일 전송 횟수
         for(String re : reportSet){
             StringTokenizer st = new StringTokenizer(re);
             String userId = st.nextToken();

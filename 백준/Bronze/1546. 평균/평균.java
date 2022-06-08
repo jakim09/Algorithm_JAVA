@@ -8,8 +8,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
-        double max = -1;
-        double[] arr = new double[n];
+        int max = -1;
+        int[] arr = new int[n];
         double sum = 0;
         
         for (int i = 0; i < n; i++){
@@ -20,8 +20,7 @@ public class Main {
         }
         
         for(int i = 0; i < n; i++){
-            arr[i] = arr[i] / max * 100;
-            sum += arr[i];
+            sum += (double)arr[i] / max * 100;
         }
         
         double average = sum/n;

@@ -8,37 +8,27 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int[] arr = new int[8];
-        String str1 = "";
-        String str2 = "";
         String answer = "";
+        int asc = 1;
+        int desc = 8;
         int i;
         for(i = 0; i < 8; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
         for(i = 0; i < 8; i++){
-            if(arr[i] != i+1){
-                str1 = "mixed";
-                break;
+            if(asc == arr[i]){
+                asc++;
+            } else if (desc == arr[i]){
+                desc--;
             }
         }
-        if(i == 8){
-            str1 = "ascending";
-        }
-        for(i = 0; i < 8; i++){
-            if(arr[i] != 8-i){
-                str2 = "mixed";
-                break;
-            }
-        }
-        if(i == 8){
-            str2 = "descending";
-        }
-        
-        if(str1 == "ascending"){
-            answer = str1;
+        if(asc == 9){
+            answer = "ascending";
+        } else if (desc == 1) {
+            answer = "descending";
         } else {
-            answer = str2;
+            answer = "mixed";
         }
-       System.out.println(answer);
+        System.out.println(answer);
     }
 }

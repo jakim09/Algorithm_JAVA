@@ -14,13 +14,13 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             String str = st.nextToken();
-            String p = "";
+            //String p = "";
             for(int j = 0; j < str.length(); j++){
                 for(int k = 0; k < n; k++){
-                     p += str.charAt(j);
+                     System.out.print(str.charAt(j));
                 }
             }
-            System.out.println(p);         
+            System.out.println();         
         }
     }
 }

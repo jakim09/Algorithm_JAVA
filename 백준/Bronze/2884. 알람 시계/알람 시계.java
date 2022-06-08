@@ -12,14 +12,16 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         
         if(m >= 45){
-            System.out.println(h + " " + (m - 45));
+            m -= 45;
         } else {
             if(h == 0){
                 h = 23;
             } else {
                 h--;
             }
-           System.out.println(h + " " + (60 - (45 - m)));
+           m = 60 - (45 - m);
         }
+        
+        System.out.println(h + " " + m);
     }
 }

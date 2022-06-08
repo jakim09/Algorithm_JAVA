@@ -7,7 +7,7 @@ public class Main {
     public static void main (String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        
+        /*
         String a = st.nextToken();
         String b = st.nextToken();
         String ra = "";
@@ -19,5 +19,13 @@ public class Main {
         }
         
         System.out.println(Integer.parseInt(ra) > Integer.parseInt(rb)? ra : rb);
+        */
+        
+        StringBuffer sba = new StringBuffer(st.nextToken());
+        StringBuffer sbb = new StringBuffer(st.nextToken());
+        String ra = sba.reverse().toString();
+        String rb = sbb.reverse().toString();
+        
+        System.out.println(Integer.parseInt(ra) > Integer.parseInt(rb)? ra : rb);        
     }
 }

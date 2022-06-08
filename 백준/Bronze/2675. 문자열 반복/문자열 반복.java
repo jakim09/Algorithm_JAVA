@@ -14,7 +14,6 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             String str = st.nextToken();
-            //String p = "";
             for(int j = 0; j < str.length(); j++){
                 for(int k = 0; k < n; k++){
                      System.out.print(str.charAt(j));

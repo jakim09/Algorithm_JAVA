@@ -18,10 +18,6 @@ public class Main {
             rb += b.charAt(i);
         }
         
-        if(Integer.parseInt(ra) > Integer.parseInt(rb)){
-            System.out.println(ra);
-        } else {
-            System.out.println(rb);            
-        }
+        System.out.println(Integer.parseInt(ra) > Integer.parseInt(rb)? ra : rb);
     }
 }

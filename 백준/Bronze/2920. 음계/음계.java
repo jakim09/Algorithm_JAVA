@@ -7,18 +7,15 @@ public class Main {
     public static void main(String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr = new int[8];
         String answer = "";
         int asc = 1;
         int desc = 8;
-        int i;
-        for(i = 0; i < 8; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-        for(i = 0; i < 8; i++){
-            if(asc == arr[i]){
+        
+        for(int i = 0; i < 8; i++){
+            int n = Integer.parseInt(st.nextToken());
+            if(asc == n){
                 asc++;
-            } else if (desc == arr[i]){
+            } else if (desc == n){
                 desc--;
             }
         }

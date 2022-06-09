@@ -13,7 +13,7 @@ public class Main {
         int w = Integer.parseInt(st.nextToken());
         int h = Integer.parseInt(st.nextToken());
         
-        System.out.println(Math.min(x-0, Math.min(y-0, Math.min(w-x, h-y))));
+        System.out.println(Math.min(x, Math.min(y, Math.min(w-x, h-y))));
         
     }
 }

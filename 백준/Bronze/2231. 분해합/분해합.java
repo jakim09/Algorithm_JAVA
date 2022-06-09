@@ -9,19 +9,18 @@ public class Main {
         int result = 0;
         
         for(int i = 0; i < n; i++){
-            int sum = 0;
-            int x = i;
-            while(x != 0){
-                sum += x % 10;
-                x /= 10;
-            }
-            int m = i + sum;
-            
+            int m = i + numberSum(i);
             if(n == m){
                 result = i;
                 break;
             }
         }
         System.out.println(result);
+    }
+    public static int numberSum(int a){
+        if(a < 10){
+            return a;
+        } 
+        return a % 10 + numberSum(a/10);
     }
 }

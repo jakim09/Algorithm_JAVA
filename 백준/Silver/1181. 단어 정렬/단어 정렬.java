@@ -26,10 +26,10 @@ public class Main {
 		}
 	 });
 	 
-	 sb.append(arr[0]).append("\n");
+	 sb.append(arr[0]).append('\n');
 	 for(int i = 1; i < n; i++) {
 		 if(!arr[i].equals(arr[i-1])) {
-	         sb.append(arr[i]).append("\n");
+	         sb.append(arr[i]).append('\n');
 		 }
 	 }
 	 System.out.println(sb);

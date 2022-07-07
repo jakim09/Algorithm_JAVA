@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.io.IOException;
 
@@ -24,10 +25,7 @@ class Main {
         		}
         	}
         }
-        int max = -1;
-		for(int i = 1; i <= n; i++) {
-			max = dp[i] > max ? dp[i] : max;
-		}
-		System.out.println(max);
+        Arrays.sort(dp);
+        System.out.println(dp[n]);
     }
 }

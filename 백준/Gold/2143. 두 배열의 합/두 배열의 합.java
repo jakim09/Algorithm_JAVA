@@ -1,11 +1,13 @@
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Main {
-
-    static long T;
+	static long T;
     static int N, M;
     static long[] inputA, inputB;
 
@@ -27,11 +29,11 @@ public class Main {
         for (int i = 0; i < M; i++) {
             inputB[i] = Long.parseLong(st.nextToken());
         }
-
+        
+    	// 1. subA, subB 구하기
         List<Long> subA = new ArrayList<>();
         List<Long> subB = new ArrayList<>();
-
-        //subA 구하기
+        
         for (int i = 0; i < N; i++) {
             long sum = inputA[i];
             subA.add(sum);
@@ -40,54 +42,47 @@ public class Main {
                 subA.add(sum);
             }
         }
-        //subB 구하기
+        
         for (int i = 0; i < M; i++) {
-            long sum = 0;
-            for (int j = i; j < M; j++) {
-                sum += inputB[j];
-                subB.add(sum);
-            }
-        }
-
-        //subA, subB 정렬하기
-        Collections.sort(subA);
-        Collections.sort(subB, Comparator.reverseOrder());
-
-        long result = 0;
-        int ptA = 0;
-        int ptB = 0;
-        while (true) {
-            long currentA = subA.get(ptA);
-            long target = T - currentA;
-            //currentB == target -> subA, subB 같은 수 개수 체크 -> 답구하기. ptA+ ptB+
-            if (subB.get(ptB) == target) {
-                long countA = 0;
-                long countB = 0;
-                while (ptA < subA.size() && subA.get(ptA) == currentA){
-                    countA++;
-                    ptA++;
-                }
-                while (ptB < subB.size() && subB.get(ptB) == target){
-                    countB++;
-                    ptB++;
-                }
-                result += countA * countB;
-            }
-            //currentB > target -> ptB++
-            else if (subB.get(ptB) > target) {
-                ptB++;
-            }
-            //currentB < target -> ptA++
-            else {
-                ptA++;
-            }
-
-            //탈출 조건
-            if (ptA == subA.size() || ptB == subB.size()) {
-                break;
-            }
+        	long sum = inputB[i];
+        	subB.add(sum);
+        	for (int j = i + 1; j < M; j++) {
+        		sum += inputB[j];
+        		subB.add(sum);
+        	}
         }
         
+    	// 2. 정렬
+        Collections.sort(subA);
+        Collections.sort(subB, Comparator.reverseOrder());
+        
+    	// 3. 2Pointer
+        int p1 = 0, p2 = 0;
+        long result = 0;
+        while(p1 < subA.size() && p2 < subB.size()) {
+        	long currentA = subA.get(p1);
+        	long currentB = subB.get(p2);
+        	long sum = currentA + currentB;
+        	// 1. sum == T : 같은 수 체크 후 result 구하기
+        	if (sum == T) {
+        		long countA = 0, countB = 0;
+        		while (p1 < subA.size() && subA.get(p1) == currentA) {
+        			countA++;
+        			p1++;
+        		} 
+        		while (p2 < subB.size() && subB.get(p2) == currentB) {
+        			countB++;
+        			p2++;
+        		}
+        		result += countA * countB;
+        	} else if (sum > T) {
+        	// 2. sum > T : p2++
+        		p2++;
+        	} else {
+        	// 3. sum < T : p1++
+        		p1++;
+        	}
+        }
         System.out.println(result);
     }
 }

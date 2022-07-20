@@ -5,27 +5,26 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-
-        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        int N = Integer.parseInt(br.readLine());
+        StringBuffer sb = new StringBuffer();
+        PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
         
-        for (int i = 0; i < n; i++) {
-            int num = Integer.parseInt(br.readLine());
-
-            if (num == 0) {
-            	 if(queue.isEmpty()) { 
-                 	System.out.println("0");
-                 }
-                 else {
-                 	System.out.println(queue.poll());
-                 }
-            }
-            else {
-            	queue.add(num);
-            }
+        for (int i = 0; i < N; i++) {
+        	int x = Integer.parseInt(br.readLine());
+        	// 값 출력, 제거
+        	if(x == 0) {
+        		if(q.isEmpty()) { 
+        			sb.append(0 + "\n");
+        			} else {
+                	sb.append(q.poll() + "\n");
+                }
+        	} else if (x > 0) {
+        		// 자연수일 경우 배열에 추가
+        		q.add(x);
+        	}
         }
-    }
+        System.out.println(sb);
+	}
 }
-    

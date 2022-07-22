@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 	static int N, M, K;  
-	static int MAX = 1000000000;
+//	static int MAX = 1000000000;
 	static int[][] dp;
 	static StringBuilder sb = new StringBuilder();
 	
@@ -23,8 +23,8 @@ public class Main {
 			dp[i][i] = 1;
 			for (int j = 1; j < i; j++) {
 				dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
-				if(dp[i][j] > MAX) {
-					dp[i][j] = MAX;
+				if(dp[i][j] > K) {
+					dp[i][j] = K;
 				}
 			}
 		}

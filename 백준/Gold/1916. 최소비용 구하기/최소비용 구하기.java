@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -34,12 +33,12 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int s = Integer.parseInt(st.nextToken());
 		int e = Integer.parseInt(st.nextToken());
-		dijkstra(s, e);
+		dijkstra(s);
 		
 		System.out.println(dist[e]);
 	}
 	
-	static void dijkstra(int s, int e) {
+	static void dijkstra(int s) {
 		PriorityQueue<Node> pq = new PriorityQueue<>();
 		boolean[] check = new boolean[N + 1];
 		pq.add(new Node(s, 0));
